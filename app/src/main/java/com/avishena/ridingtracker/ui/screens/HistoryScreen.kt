@@ -1,5 +1,6 @@
 package com.avishena.ridingtracker.ui.screens
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -14,6 +15,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
@@ -99,6 +101,11 @@ fun HistoryScreen(
         "SEPEDA" to VehicleType.OTHER,
     )
 
+    BackHandler {
+        if (selectedSession != null) selectedSession = null
+        else onBack()
+    }
+
     if (selectedSession != null) {
         SessionDetailOverlay(
             session   = selectedSession!!,
@@ -114,7 +121,8 @@ fun HistoryScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(BgDark),
+            .background(BgDark)
+            .statusBarsPadding(),
     ) {
         // Top bar
         Row(
@@ -466,7 +474,7 @@ private fun SessionDetailOverlay(
     val date    = Date(session.startTime)
     val vehicle = try { VehicleType.valueOf(session.vehicleType) } catch (_: Exception) { VehicleType.OTHER }
 
-    Box(modifier = Modifier.fillMaxSize().background(BgDark)) {
+    Box(modifier = Modifier.fillMaxSize().background(BgDark).statusBarsPadding()) {
         Column(modifier = Modifier.fillMaxSize()) {
             // Header
             Row(
