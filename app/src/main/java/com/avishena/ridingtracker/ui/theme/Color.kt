@@ -2,10 +2,21 @@ package com.avishena.ridingtracker.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+// Racing dark theme — Ducati Red
+val Accent        = Color(0xFFFF3A2D)
+val AccentDim     = Color(0xFFA8221A)
+val AccentGlow    = Color(0x59FF3A2D)
+val Accent2       = Color(0xFFFF8A3D)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+val BgDark        = Color(0xFF08090B)
+val SurfaceDark   = Color(0xFF101115)
+val Surface2Dark  = Color(0xFF171A20)
+val BorderDark    = Color(0xFF22252C)
+val BorderHiDark  = Color(0xFF2E323A)
+
+val TextPrimary   = Color(0xFFEEF0F4)
+val TextDim       = Color(0xFF8A8E98)
+val TextFaint     = Color(0xFF54585F)
+
+val GoodGreen     = Color(0xFF22C55E)
+val WarnYellow    = Color(0xFFFACC15)
