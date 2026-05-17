@@ -1,5 +1,6 @@
 package com.avishena.ridingtracker.ui.screens
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -8,6 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -75,10 +77,13 @@ fun SessionResultScreen(
     }
     val normalizedPts = routePoints.toNormalized()
 
+    BackHandler { onSave() }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(BgDark)
+            .statusBarsPadding()
             .verticalScroll(rememberScrollState()),
     ) {
         // Header
