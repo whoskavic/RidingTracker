@@ -104,4 +104,25 @@ class RidingSessionViewModel(application: Application) : AndroidViewModel(applic
     fun clearSavedSession() {
         _savedSession.value = null
     }
+
+    // Deletes the saved session from DB (user pressed "Buang" on result screen)
+    fun deleteSavedSession() {
+        viewModelScope.launch {
+            val session = _savedSession.value ?: return@launch
+            repository.deleteSession(session)
+            _savedSession.value = null
+        }
+    }
+
+    // Load route for a previously saved session (for detail screen)
+    suspend fun getRouteForSession(sessionId: Long): List<LocationPoint> =
+        repository.getRouteForSession(sessionId)
+
+    // Delete any session by ID (from history)
+    fun deleteSessionById(sessionId: Long) {
+        viewModelScope.launch {
+            val session = repository.getSession(sessionId) ?: return@launch
+            repository.deleteSession(session)
+        }
+    }
 }
