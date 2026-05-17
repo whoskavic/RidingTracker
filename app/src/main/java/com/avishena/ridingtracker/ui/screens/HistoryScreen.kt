@@ -18,6 +18,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -262,7 +264,7 @@ fun HistoryScreen(
         } else {
             LazyColumn(
                 modifier           = Modifier.weight(1f),
-                contentPadding     = PaddingValues(horizontal = 14.dp, top = 4.dp, bottom = 16.dp),
+                contentPadding     = PaddingValues(start = 14.dp, top = 4.dp, end = 14.dp, bottom = 16.dp),
                 verticalArrangement = Arrangement.spacedBy(10.dp),
             ) {
                 items(filtered, key = { it.id }) { session ->
